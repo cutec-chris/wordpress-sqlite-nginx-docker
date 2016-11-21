@@ -3,7 +3,7 @@ MAINTAINER Dorward Villaruz <dorwardv@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
-ENV DOCUMENT_ROOT /usr/share/nginx/html
+ENV DOCUMENT_ROOT /var/wordpress/html
 
 #Install nginx php-fpm php-pdo unzip curl
 RUN apt-get update 
@@ -42,5 +42,7 @@ RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 EXPOSE 80
 EXPOSE 443
+
+VOLUME ['/var/wordpress']
 
 CMD service php5-fpm start && nginx
