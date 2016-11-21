@@ -3,7 +3,7 @@ MAINTAINER Dorward Villaruz <dorwardv@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
-ENV DOCUMENT_ROOT /var/wordpress/html
+ENV DOCUMENT_ROOT /usr/share/nginx/html
 
 #Install nginx php-fpm php-pdo unzip curl
 RUN apt-get update 
@@ -32,6 +32,7 @@ RUN sed -i -e "s/post_max_size\s*=\s*8M/post_max_size = 10M/g" /etc/php5/fpm/php
 RUN sed -i -e "s/;catch_workers_output\s*=\s*yes/catch_workers_output = yes/g" /etc/php5/fpm/pool.d/www.conf
 RUN sed -i -e "s/;listen.mode = 0660/listen.mode = 0666/g" /etc/php5/fpm/pool.d/www.conf
 RUN chown -R www-data.www-data ${DOCUMENT_ROOT}
+
 RUN mkdir -p /var/wordpress/database
 RUN echo "define('DB_DIR', '/var/wordpress/database/');" >> ${DOCUMENT_ROOT}/wp-config.php
 
@@ -41,7 +42,5 @@ RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 EXPOSE 80
 EXPOSE 443
-
-VOLUME ['/var/wordpress']
 
 CMD service php5-fpm start && nginx
