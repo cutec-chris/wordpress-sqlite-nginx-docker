@@ -44,6 +44,6 @@ RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 EXPOSE 80
 EXPOSE 443
 
-VOLUME ['/var/wordpress']
+VOLUME ['/var/wordpress','/usr/share/nginx/html']
 
 CMD service php5-fpm start && nginx
