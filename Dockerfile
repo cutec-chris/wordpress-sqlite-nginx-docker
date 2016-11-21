@@ -3,7 +3,7 @@ MAINTAINER Dorward Villaruz <dorwardv@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
-ENV DOCUMENT_ROOT /var/wordpress/html
+ENV DOCUMENT_ROOT /usr/share/nginx/html
 
 RUN mkdir -p ${DOCUMENT_ROOT}
 #Install nginx php-fpm php-pdo unzip curl
