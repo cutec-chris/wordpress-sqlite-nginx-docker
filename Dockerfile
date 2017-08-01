@@ -9,7 +9,7 @@ RUN mkdir -p ${DOCUMENT_ROOT}
 RUN chmod 777 ${DOCUMENT_ROOT}
 #Install nginx php-fpm php-pdo unzip curl
 RUN apt-get update 
-RUN apt-get -y install php7-fpm unzip curl apt-utils php7-curl php7-gd php7-intl php-pear php7-imagick php7-imap php7-mcrypt php7-memcache php7-pspell php7-recode php7-sqlite php7-tidy php7-xmlrpc php7-xsl sendmail
+RUN apt-get -y install php7-fpm unzip curl apt-utils php-curl php-gd php-intl php-pear php-imagick php-imap php-mcrypt php-memcache php-pspell php-recode php-sqlite php-tidy php-xmlrpc php-xsl sendmail
 
 RUN rm -rf ${DOCUMENT_ROOT}/*
 RUN curl -o wordpress.tar.gz https://wordpress.org/latest.tar.gz
