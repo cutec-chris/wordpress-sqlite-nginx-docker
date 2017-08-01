@@ -1,4 +1,4 @@
-from nginx:mainline
+from nginx:latest
 MAINTAINER Christian U. <info@cu-tec.de>
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -9,7 +9,7 @@ RUN mkdir -p ${DOCUMENT_ROOT}
 RUN chmod 777 ${DOCUMENT_ROOT}
 #Install nginx php-fpm php-pdo unzip curl
 RUN apt-get update 
-RUN apt-get -y install php5-fpm unzip curl apt-utils php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-mcrypt php5-memcache php5-pspell php5-recode php5-sqlite php5-tidy php5-xmlrpc php5-xsl sendmail
+RUN apt-get -y install php7-fpm unzip curl apt-utils php7-curl php7-gd php7-intl php-pear php7-imagick php7-imap php7-mcrypt php7-memcache php7-pspell php7-recode php7-sqlite php7-tidy php7-xmlrpc php7-xsl sendmail
 
 RUN rm -rf ${DOCUMENT_ROOT}/*
 RUN curl -o wordpress.tar.gz https://wordpress.org/latest.tar.gz
