@@ -48,4 +48,4 @@ EXPOSE 443
 
 VOLUME ['/var/wordpress','/usr/share/nginx/html']
 
-CMD service php5-fpm start && nginx
+CMD service php-fpm start && nginx
