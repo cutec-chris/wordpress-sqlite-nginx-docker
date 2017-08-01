@@ -1,4 +1,4 @@
-from nginx:latest
+from nginx:mainline
 MAINTAINER Christian U. <info@cu-tec.de>
 
 ENV DEBIAN_FRONTEND noninteractive
